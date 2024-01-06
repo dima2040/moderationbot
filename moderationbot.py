@@ -1,15 +1,22 @@
+import os
+import asyncio
+import logging
+
+from dotenv import load_dotenv
 from aiogram.enums.content_type import ContentType          
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import CommandStart, Command
-import asyncio
-import logging
+
 from modules import moderation
 
-API_TOKEN = "6829581961:AAG-f_vRxgGA17l1Uw7mmmxtWsvF_A6wGB0"
+
+load_dotenv()
+
+api_token = os.environ.get("API_TOKEN")
 
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token=API_TOKEN)
+bot = Bot(token=api_token)
 dp = Dispatcher()
 
 
